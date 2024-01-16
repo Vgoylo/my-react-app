@@ -1,12 +1,16 @@
 import React from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostContainer from './MyPost/MyPostContainer';
+import StoreContext from "../../StoreContext";
+
 
 function Profile(props) {
   return (
     <div>
       <ProfileInfo />
-      <MyPostContainer store={props.store}/>
+      <StoreContext.Provider value={props.store}>
+        <MyPostContainer />
+      </StoreContext.Provider>
     </div>
   );
 };
