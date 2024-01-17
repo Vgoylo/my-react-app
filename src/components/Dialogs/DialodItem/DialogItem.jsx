@@ -5,9 +5,6 @@ import postModule from "../../Profile/MyPost/Post/Post.module.css";
 
 
 const DialogItim = (props) => {
-  // debugger
-  // let dialogElement = props.dialogs.dialogsPage.dialogs.map(dialog => `${dialog.name} ${dialog.id}`</li>);
-  // let path = '/dialogs/' + props.dialogs.dialogsPage.dialogs.id;
   let path = '/dialogs/' + props.id;
   return (
     <div>
