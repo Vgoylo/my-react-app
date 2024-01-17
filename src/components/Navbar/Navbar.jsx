@@ -1,21 +1,21 @@
 import React from "react";
 import s from './Navbar.module.css';
 import NavbrLink from "./NavbarLink/NavbarLink";
+import DialogItim from "../Dialogs/DialodItem/DialogItem";
 
 function Navbar(props) {
-  let state = props.state;
 
-  // let rootElemnt = state.sidebar.roots.map(r => <NavbrLink root={r.root} name={r.name} />)
-  let dialogElement = props.dialogElement
+  let rootNavbar = props.roots.map(r => <NavbrLink root={r.root} name={r.name} />)
+  let dialogElement = props.dialogElement.map(dialog => <DialogItim name={dialog.name} id={dialog.id} />)
+  let navbarDialogElements = dialogElement.slice(0,3)
+
   return (
     <nav className={s.nav}>
-        {state.sidebar.roots.map(r => <NavbrLink root={r.root} name={r.name} />)}
+        {rootNavbar}
         <div className={s.friendsItem}>
-           friends
+           my the best friends
           <div className={s.friendItem}>
-            {dialogElement[1].name}
-            {dialogElement[3].name}
-            {dialogElement[5].name}
+            {navbarDialogElements}
           </div>
         </div>
     </nav>
