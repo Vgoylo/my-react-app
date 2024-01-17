@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux';
-import { legacy_createStore as createStore } from 'redux'
-import profileReducer from './reducers/profile-reducer';
-import dialogsReducer from './reducers/dialods-reducer';
-import sidebarReducer from './reducers/sidebar-reducer';
+import { createStore } from 'redux'
+import profilePage from './reducers/profile-reducer';
+import dialogsPage from './reducers/dialods-reducer';
+import sidebar from './reducers/sidebar-reducer';
 
 let reducers = combineReducers({
-  profilePage: profileReducer,
-  dialogsPage: dialogsReducer,
-  sidebar: sidebarReducer
+  profilePage,
+  dialogsPage,
+  sidebar
 });
 
-let store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+let store = createStore(reducers, window.STATE_FROM_SERVER)
 
 export default store;
 
