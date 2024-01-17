@@ -1,21 +1,15 @@
-import React from "react";
-import DialogItim from "../Dialogs/DialodItem/DialogItem";
 import Navbar from "./Navbar";
-import StoreContext from "../../StoreContext";
+import { connect } from "react-redux";
 
-function NavbarContainer() {
+const mapStateToProps = (state) => {
+  return{
+    state: state,
+    roots: state.sidebar.roots,
+    dialogElement: state.dialogsPage.dialogs
+  };
 
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState();
-        let dialogElement = state.dialogsPage.dialogs.map(dialog => <DialogItim name={dialog.name} id={dialog.id} />)
-
-        return <Navbar state={state} roots={state.sidebar.roots} dialogElement={dialogElement}/>
-      }
-      }
-    </StoreContext.Consumer>
-  );
 };
+
+const NavbarContainer = connect(mapStateToProps)(Navbar)
 
 export default NavbarContainer

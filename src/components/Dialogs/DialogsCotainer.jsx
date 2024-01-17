@@ -1,28 +1,18 @@
 import React from "react";
-import s from './Dialogs.module.css';
+// import s from './Dialogs.module.css';
 import DialogItim from "./DialodItem/DialogItem";
-import StoreContext from "../../StoreContext";
 import Dialogs from "./Dialogs";
+import { connect } from "react-redux";
 
-function DialogsContainer() {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState();
+const mapStateToProps = (state) => {
+  let dialogs = state.dialogsPage.dialogs
+  let mapDialogElement = dialogs.map(dialog => <DialogItim name={dialog.name} id={dialog.id} />)
 
-        let dialogs = state.dialogsPage.dialogs
-        let dialogElement = dialogs.map(dialog => <DialogItim name={dialog.name} id={dialog.id} />)
-        return (
-          <div className={s.dialogs}>
-            <div className={s.dialogItems}>
-              <Dialogs dialogElement={dialogElement} />
-            </div>
-          </div>
-        );
-      }
-      }
-    </StoreContext.Consumer>
-  );
-}
+  return {
+    dialogElement: mapDialogElement
+  }
+};
+
+const DialogsContainer = connect(mapStateToProps)(Dialogs)
 
 export default DialogsContainer

@@ -5,17 +5,17 @@ import NavbrLink from "./NavbarLink/NavbarLink";
 function Navbar(props) {
   let state = props.state;
 
-  let rootElemnt = state.sidebar.roots.map(r => <NavbrLink root={r.root} name={r.name} />)
+  // let rootElemnt = state.sidebar.roots.map(r => <NavbrLink root={r.root} name={r.name} />)
   let dialogElement = props.dialogElement
   return (
     <nav className={s.nav}>
-        {rootElemnt}
+        {state.sidebar.roots.map(r => <NavbrLink root={r.root} name={r.name} />)}
         <div className={s.friendsItem}>
            friends
           <div className={s.friendItem}>
-            {dialogElement[1]}
-            {dialogElement[3]}
-            {dialogElement[5]}
+            {dialogElement[1].name}
+            {dialogElement[3].name}
+            {dialogElement[5].name}
           </div>
         </div>
     </nav>
