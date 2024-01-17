@@ -28,3 +28,28 @@ function MyPostContainer() {
 };
 
 export default MyPostContainer;
+
+
+// const mapStateToProps = (state) => {
+//   return {
+//     posts: state.profilePage.posts,
+//     newPostText: state.profilePage.newPostText
+//   }
+// };
+
+// const mapDispatychToProps = (dispatch) => {
+//   return {
+//     updateNewPostText: (text) => {
+//       let action = updateNewPostTextActionCreator(text);
+//           dispatch(action);
+//     },
+
+//      addPost: () => {
+//       dispatch(addPostActionCreator());
+//     }
+//   }
+// }
+
+// const MyPostContainer = connect(mapStateToProps, mapDispatychToProps)(MyPost)
+
+// export default MyPostContainer;
