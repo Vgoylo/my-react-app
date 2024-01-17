@@ -3,7 +3,7 @@ import s from './Dialogs.module.css';
 import MessageContainer from "./Message/MessageCotainer";
 
 function Dialogs(props) {
-  debugger
+
   let mainDialogElements = props.dialogElement.slice(0,4)
 
   return (
