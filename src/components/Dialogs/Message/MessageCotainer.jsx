@@ -16,8 +16,8 @@ const mapStateToDispath = (dispatch) => {
       dispatch(sendMessageActionCreator());
     },
 
-    updateMessageChange: (text) => {
-      let action = updateNewMessageCreator(text)
+    updateMessageChange: (body) => {
+      let action = updateNewMessageCreator(body)
       dispatch(action);
     }
   }
