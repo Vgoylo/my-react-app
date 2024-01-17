@@ -10,6 +10,7 @@ import NavbarContainer from './components/Navbar/NavbarContainer';
 import DialogsContainer from './components/Dialogs/DialogsCotainer';
 
 function App() {
+  // debugger
   return (
     <div className="app-wrapper">
       <Header />
