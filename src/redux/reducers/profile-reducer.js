@@ -1,7 +1,7 @@
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
 
-let initialeState = {
+const initialeState = {
   posts: [
     { id: '1', message: 'My first post', likeCount: 21 },
     { id: '2', message: 'The second post', likeCount: 1 },
@@ -14,9 +14,9 @@ let initialeState = {
 };
 
 const profileReducer = (state = initialeState, action) => {
-
+const stateCopy = {...state};
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       let newPost = {
         id: '5',
         message: state.newPostText,
@@ -26,15 +26,17 @@ const profileReducer = (state = initialeState, action) => {
       if (state.newPostText == '' || state.newPostText == null) {
         alert("Please enter > the username. Can’t be blank or empty !!!");
       } else {
-        state.posts.push(newPost);
+
+        stateCopy.posts = [...state.posts];
+        stateCopy.posts.push(newPost);
       }
-
-      state.newPostText = '';
-      return state;
-
+      stateCopy.newPostText = '';
+      return stateCopy;
+    }
     case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText;
-      return state;
+
+      stateCopy.newPostText = action.newText;
+      return stateCopy;
 
     default:
       return state;

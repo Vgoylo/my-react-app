@@ -1,7 +1,7 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 
-let initialeState = {
+const initialeState = {
   messages: [
     { id: '1', message: 'Hi Dima' },
     { id: '2', message: 'How are you Andrey' },
@@ -24,10 +24,11 @@ let initialeState = {
 };
 
 const dialogsReducer = (state = initialeState, action) => {
+  const stateCopy = {...state};
   switch (action.type) {
     case UPDATE_NEW_MESSAGE_BODY:
-      state.newMessageBody = action.body;
-      return state;
+      stateCopy.newMessageBody = action.body;
+      return stateCopy;
 
     case ADD_MESSAGE:
       let newMessage = {
@@ -37,15 +38,15 @@ const dialogsReducer = (state = initialeState, action) => {
       if (state.newMessageBody === null || state.newMessageBody == "") {
         alert("Please enter > the username. Can’t be blank or empty !!!");
       } else {
-        state.messages.push(newMessage);
+        stateCopy.messages = [...state.messages];
+        stateCopy.messages.push(newMessage);
       }
-      state.newMessageBody = '';
-      return state;
+      stateCopy.newMessageBody = '';
+      return stateCopy;
 
     default:
       return state;
   }
-
 };
 
 export const sendMessageActionCreator = () => ({ type: ADD_MESSAGE });
