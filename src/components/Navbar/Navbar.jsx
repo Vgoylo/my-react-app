@@ -1,15 +1,12 @@
 import React from "react";
 import s from './Navbar.module.css';
 import NavbrLink from "./NavbarLink/NavbarLink";
-import DialogItim from "../Dialogs/DialodItem/DialogItem";
 
 function Navbar(props) {
-  // debugger
-  let state = props.store.getState();
+  let state = props.state;
 
   let rootElemnt = state.sidebar.roots.map(r => <NavbrLink root={r.root} name={r.name} />)
-  let dialogElement = state.dialogsPage.dialogs.map(dialog => <DialogItim name={dialog.name} id={dialog.id} />)
-
+  let dialogElement = props.dialogElement
   return (
     <nav className={s.nav}>
         {rootElemnt}
