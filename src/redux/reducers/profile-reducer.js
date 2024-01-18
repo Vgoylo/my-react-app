@@ -14,7 +14,7 @@ const initialeState = {
 };
 
 const profileReducer = (state = initialeState, action) => {
-const stateCopy = {...state};
+
   switch (action.type) {
     case ADD_POST: {
       let newPost = {
@@ -24,19 +24,20 @@ const stateCopy = {...state};
       };
 
       if (state.newPostText == '' || state.newPostText == null) {
-        alert("Please enter > the username. Can’t be blank or empty !!!");
+        alert("Please enter the message. Can’t be blank or empty !!!");
       } else {
-
-        stateCopy.posts = [...state.posts];
-        stateCopy.posts.push(newPost);
+        return {
+          ...state,
+          newPostText: '',
+          posts: [...state.posts, newPost]
+        };
       }
-      stateCopy.newPostText = '';
-      return stateCopy;
     }
     case UPDATE_NEW_POST_TEXT:
-
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
+      return {
+        ...state,
+        newPostText: action.newText
+      };
 
     default:
       return state;
