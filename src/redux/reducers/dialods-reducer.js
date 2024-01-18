@@ -24,11 +24,14 @@ const initialeState = {
 };
 
 const dialogsReducer = (state = initialeState, action) => {
-  const stateCopy = {...state};
+
   switch (action.type) {
+
     case UPDATE_NEW_MESSAGE_BODY:
-      stateCopy.newMessageBody = action.body;
-      return stateCopy;
+      return {
+        ...state,
+        newMessageBody: action.body
+      };
 
     case ADD_MESSAGE:
       let newMessage = {
@@ -36,13 +39,14 @@ const dialogsReducer = (state = initialeState, action) => {
         message: state.newMessageBody
       };
       if (state.newMessageBody === null || state.newMessageBody == "") {
-        alert("Please enter > the username. Can’t be blank or empty !!!");
+        alert("Please enter the message. Can’t be blank or empty !!!");
       } else {
-        stateCopy.messages = [...state.messages];
-        stateCopy.messages.push(newMessage);
+        return {
+          ...state,
+          newMessageBody: '',
+          messages: [...state.messages, newMessage]
+        };
       }
-      stateCopy.newMessageBody = '';
-      return stateCopy;
 
     default:
       return state;
