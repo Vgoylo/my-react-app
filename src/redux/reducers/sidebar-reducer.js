@@ -3,6 +3,7 @@ let initialeState = {
   roots: [
     { root: '/profile', name: 'profile' },
     { root: '/dialogs', name: 'messages' },
+    { root: '/users', name: 'users' },
     { root: '/news', name: 'news' },
     { root: '/music', name: 'music' },
     { root: '/settings', name: 'settings' }
