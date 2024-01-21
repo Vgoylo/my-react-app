@@ -1,21 +1,19 @@
 import React from "react";
-import style from '../Profile/MyPost/Post/Post.module.css'
+import axios from 'axios';
+import style from '../Profile/MyPost/Post/Post.module.css';
+import userPhoto from '../../assets/images/userDefaultPhoto.png';
 
 function Users(props) {
 
   if (props.users.length === 0) {
-    props.setUsers([
-      { id: 1, followed: true, fullName: 'Dimach', status: 'I am a big boss', location: { city: 'minsk', country: 'Belarus' } },
-      { id: 2, followed: false, fullName: 'Sasha', status: 'I am a big boss too', location: { city: 'minsk', country: 'Belarus' } },
-      { id: 3, followed: true, fullName: 'Matvey', status: 'I am a big boss too', location: { city: 'minsk', country: 'Belarus' } },
-      { id: 4, followed: false, fullName: 'Dimach', status: 'I am a big boss too', location: { city: 'minsk', country: 'Belarus' } },
+    axios.get("https://social-network.samuraijs.com/api/1.0/users")
+         .then( response => { props.setUsers(response.data.items) })
+  };
 
-    ])
-  }
   return <div>
     {props.users.map(user => <div key={user.id}>
       <div className={style.itemProfile}>
-        <img src='https://img.championat.com/c/900x900/news/big/e/t/poyavilis-pervye-kadry-seriala-avatar-legenda-ob-aange-premera-v-2024-godu_1687041545980927004.jpg' />
+        <img src={ user.photos.small != null ? user.photos.small :  userPhoto } />
       </div>
       <div>
         {user.followed
@@ -25,13 +23,13 @@ function Users(props) {
       </div>
 
       <div><br></br>
-        {user.fullName}<br></br>
+        {user.name}<br></br>
         {user.status}
       </div>
 
       <div><br></br>
-        {user.location.city}<br></br>
-        {user.location.country}
+        {'user.location.city'}<br></br>
+        {'user.location.country'}
       </div>
     </div>)}
   </div>
