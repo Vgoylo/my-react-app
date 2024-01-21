@@ -3,7 +3,6 @@ import s from './../Dialogs.module.css';
 import { NavLink } from "react-router-dom";
 import postModule from "../../Profile/MyPost/Post/Post.module.css";
 
-
 const DialogItim = (props) => {
   let path = '/dialogs/' + props.id;
   return (

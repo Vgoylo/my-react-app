@@ -4,16 +4,10 @@ const SET_USERS = 'SET_USERS';
 
 const initialeState = {
   users: [
-    // { id: 1, followed: true, fullName: 'Dimach', status: 'I am a big boss', location: {city: 'minsk', country: 'Belarus'} },
-    // { id: 2, followed: false, fullName: 'Sasha', status: 'I am a big boss too', location: {city: 'minsk', country: 'Belarus'} },
-    // { id: 3, followed: true, fullName: 'Matvey', status: 'I am a big boss too', location: {city: 'minsk', country: 'Belarus'} },
-    // { id: 4, followed: false, fullName: 'Dimach', status: 'I am a big boss too', location: {city: 'minsk', country: 'Belarus'} },
-
   ]
 };
 
 const usrersReducer = (state = initialeState, action) => {
-debugger
   switch (action.type) {
     case FOLLOW: {
       return {
