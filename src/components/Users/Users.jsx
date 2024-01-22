@@ -14,7 +14,7 @@ class Users extends React.Component {
     return <div>
       {this.props.users.map(user => <div key={user.id}>
         <div className={style.itemProfile}>
-          <img src={user.photos.small != null ? user.photos.small : userPhoto} />
+          <input type="image" img src={user.photos.small != null ? user.photos.small : userPhoto} alt="photo" />
         </div>
         <div>
           {user.followed
