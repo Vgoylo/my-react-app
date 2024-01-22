@@ -1,5 +1,5 @@
 import React from "react";
-
+import s from '../Dialogs.module.css'
 const Message = (props) => {
 
   let messageElement = props.messages.map(message => <li>{message.message}</li>);
@@ -19,12 +19,12 @@ const Message = (props) => {
       <div>
         {messageElement}
       </div>
-      <div>
+      <div >
         <textarea onChange={onMessageChange} value={newMessageBody}
           placeholder="Enter your message here" />
       </div>
       <div>
-        <button onClick={onSendMessage}>Send</button>
+        <button className={s.button} onClick={onSendMessage}>Send</button>
       </div>
     </div>
   );
