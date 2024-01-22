@@ -1,7 +1,6 @@
 import React from "react";
 import s from './../Navbar.module.css';
 
-
 const NavbrLink = (props) => {
   return (
     <div className={s.item}>
