@@ -38,7 +38,7 @@ const dialogsReducer = (state = initialeState, action) => {
         id: '7',
         message: state.newMessageBody
       };
-      if (state.newMessageBody === null || state.newMessageBody == "") {
+      if (state.newMessageBody === null || state.newMessageBody === "") {
         alert("Please enter the message. Can’t be blank or empty !!!");
       } else {
         return {
@@ -47,14 +47,15 @@ const dialogsReducer = (state = initialeState, action) => {
           messages: [...state.messages, newMessage]
         };
       }
-
+      return state;
     default:
       return state;
   }
 };
 
-export const sendMessageActionCreator = () => ({ type: ADD_MESSAGE });
-export const updateNewMessageCreator = (text) => {
+
+export const sendMessage = () => ({ type: ADD_MESSAGE });
+export const updateMessageChange = (text) => {
   return { type: UPDATE_NEW_MESSAGE_BODY, body: text }
 };
 
