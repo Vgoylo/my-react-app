@@ -23,7 +23,7 @@ const profileReducer = (state = initialeState, action) => {
         likeCount: 555
       };
 
-      if (state.newPostText == '' || state.newPostText == null) {
+      if (state.newPostText === '' || state.newPostText === null) {
         alert("Please enter the message. Can’t be blank or empty !!!");
       } else {
         return {
@@ -32,6 +32,7 @@ const profileReducer = (state = initialeState, action) => {
           posts: [...state.posts, newPost]
         };
       }
+      return state;
     }
     case UPDATE_NEW_POST_TEXT:
       return {
@@ -44,8 +45,8 @@ const profileReducer = (state = initialeState, action) => {
   };
 };
 
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const updateNewPostTextActionCreator = (text) => {
+export const addPost = () => ({ type: ADD_POST });
+export const updateNewPostText = (text) => {
   return { type: UPDATE_NEW_POST_TEXT, newText: text }
 };
 
