@@ -2,7 +2,6 @@ import React from 'react'
 import { Audio } from 'react-loader-spinner';
 
 const Preloader = (props) => {
-  debugger
   return (
     <div>
       {props.isFetching ?
