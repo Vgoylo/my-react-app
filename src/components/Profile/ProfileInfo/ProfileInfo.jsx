@@ -1,17 +1,32 @@
 import React from "react";
-import s from './ProfileInfo.module.css';
+import s from '../MyPost/Post/Post.module.css';
+import Preloader from "../../common/preloader/preloader";
 
+function ProfileInfo(props) {
+  if (!props.profile) {
+    return <Preloader />
+  }
 
-function ProfileInfo() {
   return (
     <div>
       <div>
         <div>
-          <div className={s.image}>
-            <img width='80%'src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg' alt="this is sould be photo" />
+          <div >
+            <img width='780px' src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg' alt="this is sould be photo" />
           </div>
-          <div className={s.descriptionBlock}>
-            av + desc
+          <div className={s.itemProfile}>
+            <img src={props.profile.photos.small} />
+            <div><br></br>
+              {`My name ${props.profile.fullName}`}
+            </div>
+
+            <div><br></br>
+              {props.profile.aboutMe}
+            </div>
+
+            <div className={s.itemProfile}>
+              { props.profile.lookingForAJob ? <img src='https://img.championat.com/c/900x900/news/big/e/t/poyavilis-pervye-kadry-seriala-avatar-legenda-ob-aange-premera-v-2024-godu_1687041545980927004.jpg' /> : props.profile.lookingForAJobDescription }
+            </div><br></br>
           </div>
         </div>
       </div>
