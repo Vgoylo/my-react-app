@@ -16,18 +16,17 @@ function ProfileInfo(props) {
           </div>
           <div className={s.itemProfile}>
             <img src={props.profile.photos.small} />
-
-            <div>
+            <div><br></br>
               {`My name ${props.profile.fullName}`}
             </div>
 
-            <div>
+            <div><br></br>
               {props.profile.aboutMe}
             </div>
 
             <div className={s.itemProfile}>
               { props.profile.lookingForAJob ? <img src='https://img.championat.com/c/900x900/news/big/e/t/poyavilis-pervye-kadry-seriala-avatar-legenda-ob-aange-premera-v-2024-godu_1687041545980927004.jpg' /> : props.profile.lookingForAJobDescription }
-            </div>
+            </div><br></br>
           </div>
         </div>
       </div>
