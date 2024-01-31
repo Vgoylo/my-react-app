@@ -8,7 +8,7 @@ import Music from './components/Music/Music';
 import NavbarContainer from './components/Navbar/NavbarContainer';
 import DialogsContainer from './components/Dialogs/DialogsCotainer';
 import UsersContainer from './components/Users/UsersContainer';
-import PprofileContainer from './components/Profile/ProfileContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <NavbarContainer />
       <div className='app-wrapper-contenmt'>
         <Routes>
-          <Route path="/profile" element={<PprofileContainer />} />
+          <Route path="/profile/:userId?" element={<ProfileContainer />} />
           <Route path="/dialogs" element={<DialogsContainer />} />
           <Route path="/users" element={<UsersContainer />} />
           <Route path="/settings" element={<Settings />} />
